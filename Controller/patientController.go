@@ -1,13 +1,13 @@
 package controller
- 
+
 import (
-    "encoding/json"
-    "goBackend/Models"
-    "goBackend/Service"
-    "net/http"
-    "strconv"
- 
-    "github.com/gorilla/mux"
+	"encoding/json"
+	"goBackend/Models"
+	"goBackend/Service"
+	"net/http"
+	"strconv"
+
+	"github.com/gorilla/mux"
 )
  
 func GetPatients(w http.ResponseWriter, r *http.Request) {
@@ -20,7 +20,7 @@ func GetPatients(w http.ResponseWriter, r *http.Request) {
 }
  
 func CreatePatient(w http.ResponseWriter, r *http.Request) {
-    var p Models.PatientModel
+    var p Models.Patient
     json.NewDecoder(r.Body).Decode(&p)
     err := Service.CreatePatient(p)
     if err != nil {
@@ -31,7 +31,7 @@ func CreatePatient(w http.ResponseWriter, r *http.Request) {
 }
  
 func UpdatePatient(w http.ResponseWriter, r *http.Request) {
-    var p Models.PatientModel
+    var p Models.Patient
     json.NewDecoder(r.Body).Decode(&p)
     err := Service.UpdatePatient(p)
     if err != nil {

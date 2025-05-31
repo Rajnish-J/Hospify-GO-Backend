@@ -10,7 +10,7 @@ var DB *sql.DB
 
 func InitDB(){
 	var err error
-	dsn := "root:root@tcp(127.0.0.0:3306)/hospify"
+	dsn := "root:root@tcp(127.0.0.1:3306)/hospify"
 	DB, err = sql.Open("mysql", dsn)
 	if err != nil {
 		panic(err)

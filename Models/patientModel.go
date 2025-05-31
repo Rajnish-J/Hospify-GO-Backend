@@ -2,7 +2,7 @@ package Models
 
 import "time"
 
-type PatientModel struct {
+type Patient struct {
 	PatientId 			int			`json:"patient_id"`
 	PatientName     	string  	`json:"patient_name"`
 	PatientEmail		string  	`json:"patient_email"`

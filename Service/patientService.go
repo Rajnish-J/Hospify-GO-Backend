@@ -5,15 +5,15 @@ import (
     "goBackend/Models"
 )
  
-func GetAllPatients() ([]Models.PatientModel, error) {
+func GetAllPatients() ([]Models.Patient, error) {
     return DAO.GetAllPatients()
 }
  
-func CreatePatient(p Models.PatientModel) error {
+func CreatePatient(p Models.Patient) error {
     return DAO.CreatePatient(p)
 }
  
-func UpdatePatient(p Models.PatientModel) error {
+func UpdatePatient(p Models.Patient) error {
     return DAO.UpdatePatient(p)
 }
  
