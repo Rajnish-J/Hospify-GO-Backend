@@ -1,22 +1,26 @@
-package Service
- 
+package service
+
 import (
-    "goBackend/DAO"
-    "goBackend/Models"
+	"goBackend/dao"
+	"goBackend/Models"
 )
- 
+
+// GetAllPatients calls the DAO to fetch all patients
 func GetAllPatients() ([]Models.Patient, error) {
-    return DAO.GetAllPatients()
+	return dao.GetAllPatients()
 }
- 
+
+// CreatePatient calls the DAO to create a new patient
 func CreatePatient(p Models.Patient) error {
-    return DAO.CreatePatient(p)
+	return dao.CreatePatient(p)
 }
- 
+
+// UpdatePatient calls the DAO to update an existing patient
 func UpdatePatient(p Models.Patient) error {
-    return DAO.UpdatePatient(p)
+	return dao.UpdatePatient(p)
 }
- 
+
+// DeletePatient calls the DAO to delete a patient by ID
 func DeletePatient(id int) error {
-    return DAO.DeletePatient(id)
+	return dao.DeletePatient(id)
 }
