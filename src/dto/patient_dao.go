@@ -1,11 +1,11 @@
-package dao
+package dto
 
 import (
 	"hospify/src/models"
 	"gorm.io/gorm"
 )
 
-type PatientDAO struct {
+type PatientDTO struct {
 	ID             uint   `json:"id"`
 	Name           string `json:"name"`
 	Age            int    `json:"age"`
@@ -16,7 +16,7 @@ type PatientDAO struct {
 }
 
 // Convert DAO to Model
-func (p *PatientDAO) ToModel() *models.Patient {
+func (p *PatientDTO) ToModel() *models.Patient {
 	return &models.Patient{
 		Model:          gorm.Model{ID: p.ID},
 		PatientName:    p.Name,
@@ -29,8 +29,8 @@ func (p *PatientDAO) ToModel() *models.Patient {
 }
 
 // Convert Model to DAO
-func FromModel(m *models.Patient) *PatientDAO {
-	return &PatientDAO{
+func FromModel(m *models.Patient) *PatientDTO {
+	return &PatientDTO{
 		ID:      m.ID,
 		Name:    m.PatientName,
 		Age:     m.PatientAge,
