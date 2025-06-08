@@ -2,7 +2,7 @@ package controller
 
 import (
 	"encoding/json"
-	"hospify/src/dao"
+	"hospify/src/dto"
 	"hospify/src/service"
 	"net/http"
 	"strconv"
@@ -11,7 +11,7 @@ import (
 )
 
 func CreatePatient(w http.ResponseWriter, r *http.Request) {
-	var p dao.PatientDAO
+	var p dto.PatientDTO
 	if err := json.NewDecoder(r.Body).Decode(&p); err != nil {
 		http.Error(w, "Invalid input", http.StatusBadRequest)
 		return
@@ -45,7 +45,7 @@ func GetPatient(w http.ResponseWriter, r *http.Request) {
 
 func UpdatePatient(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
-	var p dao.PatientDAO
+	var p dto.PatientDTO
 	if err := json.NewDecoder(r.Body).Decode(&p); err != nil {
 		http.Error(w, "Invalid input", http.StatusBadRequest)
 		return

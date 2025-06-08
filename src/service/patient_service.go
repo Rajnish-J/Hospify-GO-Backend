@@ -2,47 +2,47 @@ package service
 
 import (
 	"hospify/src/config"
-	"hospify/src/dao"
+	"hospify/src/dto"
 	"hospify/src/validator"
 )
 
-func CreatePatient(p *dao.PatientDAO) (*dao.PatientDAO, error) {
+func CreatePatient(p *dto.PatientDTO) (*dto.PatientDTO, error) {
 	model := p.ToModel()
 	created, err := validator.CreatePatient(config.DB, model)
 	if err != nil {
 		return nil, err
 	}
-	return dao.FromModel(created), nil
+	return dto.FromModel(created), nil
 }
 
-func GetAllPatients() ([]dao.PatientDAO, error) {
+func GetAllPatients() ([]dto.PatientDTO, error) {
 	models, err := validator.GetAllPatients(config.DB)
 	if err != nil {
 		return nil, err
 	}
 
-	var daos []dao.PatientDAO
+	var daos []dto.PatientDTO
 	for _, m := range models {
-		daos = append(daos, *dao.FromModel(&m))
+		daos = append(daos, *dto.FromModel(&m))
 	}
 	return daos, nil
 }
 
-func GetPatientByID(id uint) (*dao.PatientDAO, error) {
+func GetPatientByID(id uint) (*dto.PatientDTO, error) {
 	model, err := validator.GetPatientByID(config.DB, id)
 	if err != nil {
 		return nil, err
 	}
-	return dao.FromModel(model), nil
+	return dto.FromModel(model), nil
 }
 
-func UpdatePatient(p *dao.PatientDAO) (*dao.PatientDAO, error) {
+func UpdatePatient(p *dto.PatientDTO) (*dto.PatientDTO, error) {
 	model := p.ToModel()
 	err := validator.UpdatePatient(config.DB, model)
 	if err != nil {
 		return nil, err
 	}
-	return dao.FromModel(model), nil
+	return dto.FromModel(model), nil
 }
 
 func DeletePatient(id uint) error {
