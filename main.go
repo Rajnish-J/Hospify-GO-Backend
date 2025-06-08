@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/joho/godotenv"
+	"hospify/src/config"
+)
 
 func main() {
-	fmt.Println("Hi i am RajSam")
+  godotenv.Load()
+  config.InitDB()
 }
