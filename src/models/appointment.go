@@ -7,7 +7,7 @@ type Appointment struct {
 	DoctorID          uint      `gorm:"not null"`
 	PatientID         uint      `gorm:"not null"`
 	DateOfAppointment time.Time `gorm:"not null"`
-	TimeOfAppointment string    `gorm:"not null"`
+	TimeOfAppointment time.Time    `gorm:"not null"`
 	DiagnosisID       *uint
 	StatusID          uint
 	CreatedAt         time.Time

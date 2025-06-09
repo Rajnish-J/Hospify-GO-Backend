@@ -3,7 +3,7 @@ package dto
 import (
 	"hospify/src/models"
 )
-
+//
 type MedicineDTO struct {
 	ID           uint   `json:"id"`
 	Name         string `json:"name"`
