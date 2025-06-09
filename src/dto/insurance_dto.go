@@ -25,11 +25,7 @@ func FromInsuranceModel(m *models.Insurance) *InsuranceDTO {
 	}
 	return &InsuranceDTO{
 		ID:             m.InsuranceID,
-<<<<<<< HEAD
 		ProviderID:     providerID,
-=======
-		ProviderID:     *m.ProviderID,
->>>>>>> cd4e49e0dc061abf54be13ed20e0a52daf7ac933
 		PolicyNumber:   m.PolicyNumber,
 		CoverageDetail: m.CoverageDetails,
 	}

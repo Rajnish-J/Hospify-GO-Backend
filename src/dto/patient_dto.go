@@ -25,7 +25,7 @@ func (p *PatientDTO) ToModel() *models.Patient {
 		PatientName:      p.Name,
 		PatientEmail:     p.Email,
 		PatientPhone:     p.Phone,
-		AddressID:        &p.AddressID,
+		AddressID:        p.AddressID,
 		EmploymentStatus: p.EmploymentStatus,
 		AnnualIncome:     p.AnnualIncome,
 		InsuranceID:      p.InsuranceID,
@@ -34,13 +34,13 @@ func (p *PatientDTO) ToModel() *models.Patient {
 }
 
 // FromModel converts a GORM model to PatientDTO
-func FromModel(m *models.Patient) *PatientDTO {
+func FromModel(m models.Patient) *PatientDTO {
 	return &PatientDTO{
 		ID:               m.PatientID,
 		Name:             m.PatientName,
 		Email:            m.PatientEmail,
 		Phone:            m.PatientPhone,
-		AddressID:        *m.AddressID,
+		AddressID:        m.AddressID,
 		EmploymentStatus: m.EmploymentStatus,
 		AnnualIncome:     m.AnnualIncome,
 		InsuranceID:      m.InsuranceID,
