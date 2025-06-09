@@ -7,6 +7,6 @@ type Address struct {
 	CityID     uint
 	StateID    uint
 	ZipCode    string
-	City       City  `gorm:"foreignKey:CityID"`
-	State      State `gorm:"foreignKey:StateID"`
+	City       City  `gorm:"foreignKey:CityID;constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
+	State      State `gorm:"foreignKey:StateID;constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 }

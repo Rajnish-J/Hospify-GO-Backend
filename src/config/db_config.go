@@ -26,7 +26,35 @@ func InitDB() {
 	fmt.Println("✅ Connected to MySQL using GORM")
 
 	// Auto-migrate your models
-	if err := DB.AutoMigrate(&models.Patient{}); err != nil {
+	if err := DB.AutoMigrate(
+
+		// Independent lookup tables first
+		&models.Role{},
+		&models.State{},
+		&models.City{},
+		&models.Status{},
+		&models.Specialization{},
+		&models.PaymentMethod{},
+
+		// Tables with dependencies on lookup tables
+		&models.User{},
+		&models.Address{},
+		&models.Clinic{},
+		&models.Medicine{},
+		&models.MedicalHistory{},
+		&models.InsuranceProvider{},
+
+		// Tables depending on above
+		&models.Insurance{},
+		&models.Patient{},
+		&models.Doctor{},
+		&models.Appointment{},
+		&models.Prescription{},
+		&models.Payment{},
+	); err != nil {
+
 		log.Fatalf("❌ AutoMigrate failed: %v", err)
+
 	}
+
 }
