@@ -2,8 +2,7 @@ package models
 
 type Insurance struct {
 	InsuranceID     uint `gorm:"primaryKey"`
-	ProviderID      *uint
+	ProviderID      *uint `gorm:"foreignKey:ProviderID"`
 	PolicyNumber    string
 	CoverageDetails string
-	Provider        InsuranceProvider `gorm:"foreignKey:ProviderID"`
 }

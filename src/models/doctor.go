@@ -9,9 +9,7 @@ type Doctor struct {
 	DoctorPassword   string
 	DoctorEmail      string
 	DoctorPhone      string
-	SpecializationID uint
-	ClinicID         uint
-	FeesPerSession   float64
-	Clinic           Clinic         `gorm:"foreignKey:ClinicID"`
-	Specialization   Specialization `gorm:"foreignKey:SpecializationID"`
+	SpecializationID uint		`gorm:"foreignKey:SpecializationID"`
+	ClinicID         uint		`gorm:"foreignKey:ClinicID"`
+	FeesPerSession   float64      
 }
